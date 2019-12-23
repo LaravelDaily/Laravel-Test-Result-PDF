@@ -16,6 +16,12 @@ class CreateQuestionResultPivotTable extends Migration
             $table->unsignedInteger('question_id');
 
             $table->foreign('question_id', 'question_id_fk_773767')->references('id')->on('questions')->onDelete('cascade');
+
+            $table->unsignedInteger('option_id');
+
+            $table->foreign('option_id', 'option_id_fk_773767')->references('id')->on('options')->onDelete('cascade');
+
+            $table->integer('points')->default(0);
         });
     }
 }
