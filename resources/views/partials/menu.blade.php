@@ -52,6 +52,46 @@
                     </ul>
                 </li>
             @endcan
+            @can('category_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.categories.index") }}" class="nav-link {{ request()->is('admin/categories') || request()->is('admin/categories/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-list nav-icon">
+
+                        </i>
+                        {{ trans('cruds.category.title') }}
+                    </a>
+                </li>
+            @endcan
+            @can('question_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.questions.index") }}" class="nav-link {{ request()->is('admin/questions') || request()->is('admin/questions/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-question nav-icon">
+
+                        </i>
+                        {{ trans('cruds.question.title') }}
+                    </a>
+                </li>
+            @endcan
+            @can('option_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.options.index") }}" class="nav-link {{ request()->is('admin/options') || request()->is('admin/options/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-check nav-icon">
+
+                        </i>
+                        {{ trans('cruds.option.title') }}
+                    </a>
+                </li>
+            @endcan
+            @can('result_access')
+                <li class="nav-item">
+                    <a href="{{ route("admin.results.index") }}" class="nav-link {{ request()->is('admin/results') || request()->is('admin/results/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-trophy nav-icon">
+
+                        </i>
+                        {{ trans('cruds.result.title') }}
+                    </a>
+                </li>
+            @endcan
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">

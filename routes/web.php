@@ -27,4 +27,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
+
+    // Categories
+    Route::delete('categories/destroy', 'CategoriesController@massDestroy')->name('categories.massDestroy');
+    Route::resource('categories', 'CategoriesController');
+
+    // Questions
+    Route::delete('questions/destroy', 'QuestionsController@massDestroy')->name('questions.massDestroy');
+    Route::resource('questions', 'QuestionsController');
+
+    // Options
+    Route::delete('options/destroy', 'OptionsController@massDestroy')->name('options.massDestroy');
+    Route::resource('options', 'OptionsController');
+
+    // Results
+    Route::delete('results/destroy', 'ResultsController@massDestroy')->name('results.massDestroy');
+    Route::resource('results', 'ResultsController');
 });
