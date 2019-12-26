@@ -39,6 +39,6 @@ class TestsController extends Controller
         ]);
         $result->questions()->sync($questions);
 
-        return redirect()->route('client.home')->withStatus("Test result: $result->total_points points");
+        return redirect()->route('client.results.show', $result->id);
     }
 }

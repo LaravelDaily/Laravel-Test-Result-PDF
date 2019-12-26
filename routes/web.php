@@ -11,6 +11,8 @@ Route::group(['as' => 'client.', 'middleware' => ['auth']], function () {
     Route::post('change-password', 'ChangePasswordController@update')->name('password.update');
     Route::get('test', 'TestsController@index')->name('test');
     Route::post('test', 'TestsController@store')->name('test.store');
+    Route::get('results/{result}', 'ResultsController@show')->name('results.show');
+    Route::get('send/{result}', 'ResultsController@send')->name('results.send');
 });
 
 Auth::routes();
