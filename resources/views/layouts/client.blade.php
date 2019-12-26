@@ -42,6 +42,11 @@
                                     {{ __('Dashboard') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('client.test') }}">
+                                    {{ __('Start Test') }}
+                                </a>
+                            </li>
                         @endguest
                     </ul>
 

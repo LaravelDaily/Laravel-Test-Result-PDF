@@ -48,6 +48,10 @@
                 font-size: 84px;
             }
 
+            .title > a {
+                color: #636b6f;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -81,7 +85,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <a href="{{ route('client.test') }}">START TEST</a>
                 </div>
 
                 <div class="links">

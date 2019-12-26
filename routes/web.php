@@ -9,6 +9,8 @@ Route::group(['as' => 'client.', 'middleware' => ['auth']], function () {
     Route::get('dashboard', 'HomeController@index')->name('home');
     Route::get('change-password', 'ChangePasswordController@create')->name('password.create');
     Route::post('change-password', 'ChangePasswordController@update')->name('password.update');
+    Route::get('test', 'TestsController@index')->name('test');
+    Route::post('test', 'TestsController@store')->name('test.store');
 });
 
 Auth::routes();
