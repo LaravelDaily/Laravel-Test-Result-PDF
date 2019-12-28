@@ -24,19 +24,20 @@ class TestsController extends Controller
 
     public function store(StoreTestRequest $request)
     {
-        $options = collect($request->input('questions'))->flatten()->toArray();
-        $options = Option::whereIn('id', $options)->get();
+        $options = Option::find(array_values($request->input('questions')));
+
+        $result = auth()->user()->userResults()->create([
+            'total_points' => $options->sum('points')
+        ]);
+
         $questions = $options->mapWithKeys(function ($option) {
-            return [$option->question->id => [
+            return [$option->question_id => [
                         'option_id' => $option->id,
                         'points' => $option->points
                     ]
                 ];
             })->toArray();
 
-        $result = auth()->user()->userResults()->create([
-            'total_points' => $options->sum('points')
-        ]);
         $result->questions()->sync($questions);
 
         return redirect()->route('client.results.show', $result->id);
